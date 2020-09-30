@@ -1,0 +1,23 @@
+<ng-container  *ngFor="let productItem of products">
+  <section class="product__item">
+      <h1 class="product__title">{{ productItem.name }}</h1>
+      <ng-container *ngIf="productItem.imageUrl">
+          <figure class="product__figure">
+              <img
+                  loading="lazy"
+                  *ngIf="productItem.imageUrl"
+                  width="100px"
+                  class="product__image"
+                  [src]="productItem.imageUrl"
+                  alt=""
+              />
+          </figure>
+      </ng-container>
+
+      <footer class="product__footer">
+          <em class="product__price">{{ productItem.price | currency: 'INR' }}</em>
+
+          <button class="product__card-btn" mat-flat-button>Add to cart</button>
+      </footer>
+  </section>
+</ng-container>
